@@ -1,0 +1,14 @@
+{
+  "name": "infisical-render-test",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "bun src/server.ts",
+    "start:node": "node --experimental-strip-types src/server.ts",
+    "build": "bun install"
+  },
+  "dependencies": {
+    "@infisical/sdk": "^5.0.0"
+  }
+}
