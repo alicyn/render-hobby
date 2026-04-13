@@ -2,7 +2,7 @@
  * Validate that expected env vars are present after loading secrets.
  */
 
-import { ENV_REGISTRY } from "./env-registry"
+import { ENV_REGISTRY } from "./env-registry.ts"
 
 export function checkRuntimeEnv(): { missing: string[]; warnings: string[] } {
   const missing: string[] = []

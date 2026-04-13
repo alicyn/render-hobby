@@ -2,9 +2,9 @@
  * Test server: fetches env vars from Infisical, validates them, serves status.
  */
 
-import { loadSecrets } from "./load-secrets"
-import { checkRuntimeEnv } from "./env-check"
-import { ENV_REGISTRY } from "./env-registry"
+import { loadSecrets } from "./load-secrets.ts"
+import { checkRuntimeEnv } from "./env-check.ts"
+import { ENV_REGISTRY } from "./env-registry.ts"
 
 const PORT = Number(process.env.PORT ?? "3000")
 
