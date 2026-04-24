@@ -1,24 +1,21 @@
 # Render Blueprint — deploy with "New → Blueprint" and point to this repo
 services:
-  - type: web
-    name: infisical-render-test
-    runtime: node
-    plan: free
-    buildCommand: npm install
-    startCommand: node --experimental-strip-types src/server.ts
+  - type: cron
+    name: db-backup-test
+    runtime: docker
+    plan: starter
+    region: virginia
+    schedule: "0 3 * * *"
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
     envVars:
-      # Bootstrap secrets — set these in the Render dashboard
-      - key: INFISICAL_CLIENT_ID
+      - key: AZURE_TENANT_ID
         sync: false
-      - key: INFISICAL_CLIENT_SECRET
+      - key: AZURE_CLIENT_ID
         sync: false
-      # Infisical project config
-      - key: INFISICAL_PROJECT_ID
+      - key: AZURE_CLIENT_SECRET
         sync: false
-      - key: INFISICAL_ENVIRONMENT
-        value: prod
-      - key: INFISICAL_SECRET_PATH
-        value: /
-      # Optional: for self-hosted Infisical
-      # - key: INFISICAL_SITE_URL
-      #   value: https://your-infisical-instance.com
+      - key: AZURE_STORAGE_ACCOUNT
+        sync: false
+      - key: AZURE_STORAGE_CONTAINER
+        sync: false
